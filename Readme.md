@@ -1,7 +1,6 @@
 # Devops Weather Exercise - The trade desk
 
-Reads tsv file and creates a tsv histogram file containing histogram bins
-of forecasted high temperatures of the locations discovered in the input log.
+Reads tsv file and creates a tsv histogram file containing histogram bins of forecasted high temperatures of the locations discovered in the input log.
 
 ## Getting Started
 
@@ -12,18 +11,18 @@ This solution requires docker, python 3.7 and pip
 To install docker, refer:
 https://docs.docker.com/install/
 
-to install python 3.7.0, refer to:
+To install python 3.7.0, refer to:
 https://www.python.org/downloads/
 
-to install pip:
+To install pip:
 https://pip.pypa.io/en/stable/installing/
 
-you will need to get an api key for OpenWeatherMap.org
-To do so, sign up to: https://openweathermap.org/ and retrieve your api key
+You will need to get an api key for OpenWeatherMap.org. To do so, sign up to: https://openweathermap.org/ and retrieve your api key
 
 ### Download maxmind geoip database
 
 Download: http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
+
 Expand it. Copy GeoLite2-City.mmdb into ./data/GeoLite2-City.mmdb
 
 ### Startup Redis via docker
