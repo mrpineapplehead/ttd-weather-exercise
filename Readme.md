@@ -71,14 +71,14 @@ At the very minimum, you will need to update weather_api.api_key with api key ob
 
 Attributes are:
 
-| Json Config | Description |
-| weather_api.api_key | your weather api_key from http://openweathermap.org |
-| weather_api.units | forecast units. eg: imperial or metric |
-| cache.host | the host where the cache is living on |
-| cache.port | the port the cache is listening on |
-| geoip_db.file | the location of the GeoLite2-City.mmdb file |
-|log_processor.geo_precision| the rounding number for longitude and latitude.
-  eg: if the value 0.2; and longitude to lookup is 100.222222, it will be rounded to 100.2|
+| Json Config | Description
+| --- | ---
+| weather_api.api_key | your weather api_key from http://openweathermap.org
+| weather_api.units | forecast units. eg: imperial or metric
+| cache.host | the host where the cache is living on
+| cache.port | the port the cache is listening on
+| geoip_db.file | the location of the GeoLite2-City.mmdb file
+|log_processor.geo_precision| the rounding number for longitude and latitude. eg: if the value 0.2; and longitude to lookup is 100.222222, it will be rounded to 100.2
 
 
 
