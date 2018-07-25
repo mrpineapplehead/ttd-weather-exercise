@@ -21,21 +21,17 @@ https://pip.pypa.io/en/stable/installing/
 you will need to get an api key for OpenWeatherMap.org
 To do so, sign up to: https://openweathermap.org/ and retrieve your api key
 
-For local testing, it's best to use virtualenv:
-https://packaging.python.org/guides/installing-using-pip-and-virtualenv/
-
 ### Download maxmind geoip database
 
 Download: http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
 Expand it. Copy GeoLite2-City.mmdb into ./data/GeoLite2-City.mmdb
-
 
 ### Startup Redis via docker
 
 The solution uses Redis cache as it expires keys quite nicely.
 
 ```
-docker run --name redis -d -p 6379:6379 redis:4
+$ docker run --name redis -d -p 6379:6379 redis:4
 ```
 
 ### Install required python packages
@@ -51,19 +47,19 @@ The following python packages are required and listed in requirements.txt file
 To install packages
 
 ```
-pip install --user argparse
-pip install --user redis
-pip install --user python-geoip
-pip install --user pytz
-pip install --user tzlocal
+$ pip install --user argparse
+$ pip install --user redis
+$ pip install --user python-geoip
+$ pip install --user pytz
+$ pip install --user tzlocal
 ```
 
 For local environment; please use venv which comes standard in python3.7
 ```
-cd /path/to/weather-exercise
-python3 -m venv .
-source bin/activate
-pip install -r requirements.txt
+$ cd /path/to/weather-exercise
+$ python3 -m venv .
+$ source bin/activate
+$ pip install -r requirements.txt
 ```
 
 ### Config file
@@ -73,30 +69,27 @@ At the very minimum, you will need to update weather_api.api_key with api key
 obtained from http://openweathermap.org
 Attributes are:
 
-```
-weather_api.api_key: your weather api_key from http://openweathermap.org
-weather_api.units: forecast units. eg: imperial or metric
-cache.host: the host where the cache is living on
-cache.port: the port the cache is listening on
-geoip_db: the location of the GeoLite2-City.mmdb file
-log_processor.geo_precision: the rounding number for longitude and latitude.
+
+- *weather_api.api_key*: your weather api_key from http://openweathermap.org
+- *weather_api.units*: forecast units. eg: imperial or metric
+- *cache.host*: the host where the cache is living on
+- *cache.port*: the port the cache is listening on
+- *geoip_db.file*: the location of the GeoLite2-City.mmdb file
+- *log_processor.geo_precision*: the rounding number for longitude and latitude.
   eg: if the value 0.2; and longitude to lookup is 100.222222, it will be rounded to 100.2
-```
+
 
 
 ## Usage
 Example:
-  ./main.py --inputFile ./input/devops_coding_input_log1.tsv --outputFile out.tsv -H 10
+```python
+  $ python3 main.py --inputFile ./input/devops_coding_input_log1.tsv --outputFile out.tsv -H 10
+```
 
  Attributes:
-    --inputFile, -i: The input file tsv file
-
-    --outputFile, -o: The output file
-
-    --histogramBuckets, -H: Number of histogram buckets
-
-    --configFile, -c: location of the configuration file
-
-    --flushCache: flushes the cache. Optional. Good for testing
-
-    --verbose, -v: prints out where the value was retrieved from - API or Cache
+*    --inputFile, -i: The input file tsv file
+*    --outputFile, -o: The output file
+*    --histogramBuckets, -H: Number of histogram buckets
+*    --configFile, -c: location of the configuration file
+*    --flushCache: flushes the cache. Optional. Good for testing
+*    --verbose, -v: prints out where the value was retrieved from - API or Cache
