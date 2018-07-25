@@ -39,17 +39,18 @@ $ docker run --name redis -d -p 6379:6379 redis:4
 The following python packages are required and listed in requirements.txt file
 - argparse
 - redis
-- python-geoip
 - pytz
 - tzlocal
 - maxminddb
+- requests
 
 To install packages
 
 ```
 $ pip install --user argparse
 $ pip install --user redis
-$ pip install --user python-geoip
+$ pip install --user maxminddb
+$ pip install --user requests
 $ pip install --user pytz
 $ pip install --user tzlocal
 ```
@@ -65,24 +66,25 @@ $ pip install -r requirements.txt
 ### Config file
 
 A configuration file is provided in config/weather.json
-At the very minimum, you will need to update weather_api.api_key with api key
-obtained from http://openweathermap.org
+
+At the very minimum, you will need to update weather_api.api_key with api key obtained from http://openweathermap.org
+
 Attributes are:
 
-
-- *weather_api.api_key*: your weather api_key from http://openweathermap.org
-- *weather_api.units*: forecast units. eg: imperial or metric
-- *cache.host*: the host where the cache is living on
-- *cache.port*: the port the cache is listening on
-- *geoip_db.file*: the location of the GeoLite2-City.mmdb file
-- *log_processor.geo_precision*: the rounding number for longitude and latitude.
-  eg: if the value 0.2; and longitude to lookup is 100.222222, it will be rounded to 100.2
+| Json Config | Description |
+| weather_api.api_key | your weather api_key from http://openweathermap.org |
+| weather_api.units | forecast units. eg: imperial or metric |
+| cache.host | the host where the cache is living on |
+| cache.port | the port the cache is listening on |
+| geoip_db.file | the location of the GeoLite2-City.mmdb file |
+|log_processor.geo_precision| the rounding number for longitude and latitude.
+  eg: if the value 0.2; and longitude to lookup is 100.222222, it will be rounded to 100.2|
 
 
 
 ## Usage
 Example:
-```python
+```
   $ python3 main.py --inputFile ./input/devops_coding_input_log1.tsv --outputFile out.tsv -H 10
 ```
 
