@@ -107,7 +107,7 @@ class WeatherLogProcessor(object):
 
         if len(self.max_forecasts) < number_of_buckets:
             number_of_buckets = len(self.max_forecasts)
-
+        print(self.max_forecasts[-1])
         bucket_size = (self.max_forecasts[-1] - self.max_forecasts[0]) / number_of_buckets
         bucket_min = self.max_forecasts[0]
         bucket_max = self.max_forecasts[0] + bucket_size
@@ -131,9 +131,6 @@ class WeatherLogProcessor(object):
                     bucket_min = bucket_max
                     bucket_max = bucket_max + bucket_size
 
-            filewriter.writerow([round(bucket_min, 2),
-                                 round(bucket_max, 2),
-                                 count])
 
     def print_error_report(self):
         errors = self.error_report.get_errors()

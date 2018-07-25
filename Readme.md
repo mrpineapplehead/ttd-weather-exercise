@@ -58,10 +58,10 @@ pip install --user pytz
 pip install --user tzlocal
 ```
 
-For local environment; please use virtualenv
+For local environment; please use venv which comes standard in python3.7
 ```
-python3 -m venv /path/to/weather-exercise/
-cd /path/to/weather-exercise/
+cd /path/to/weather-exercise
+python3 -m venv .
 source bin/activate
 pip install -r requirements.txt
 ```
