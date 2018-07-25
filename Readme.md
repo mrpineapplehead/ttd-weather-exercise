@@ -34,32 +34,25 @@ The solution uses Redis cache as it expires keys quite nicely.
 $ docker run --name redis -d -p 6379:6379 redis:4
 ```
 
+### Virtual environment setup
+
+Virtual environment now packaged by default in 3.7
+
+To activate it:
+
+```
+$ cd /path/to/ttd-weather-exercise
+$ python3 -m venv .
+$ source bin/activate
+```
+
 ### Install required python packages
 
-The following python packages are required and listed in requirements.txt file
-- argparse
-- redis
-- pytz
-- tzlocal
-- maxminddb
-- requests
+Required python packages are in requirements.txt file.
 
 To install packages
 
 ```
-$ pip install --user argparse
-$ pip install --user redis
-$ pip install --user maxminddb
-$ pip install --user requests
-$ pip install --user pytz
-$ pip install --user tzlocal
-```
-
-For local environment; please use venv which comes standard in python3.7
-```
-$ cd /path/to/weather-exercise
-$ python3 -m venv .
-$ source bin/activate
 $ pip install -r requirements.txt
 ```
 
