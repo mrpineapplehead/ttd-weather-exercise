@@ -7,7 +7,7 @@ of forecasted high temperatures of the locations discovered in the input log.
 
 ### Prerequisites
 
-This solution requires docker, python 2.7 and pip
+This solution requires docker, python 3.7 and pip
 
 To install docker, refer:
 https://docs.docker.com/install/
@@ -20,6 +20,9 @@ https://pip.pypa.io/en/stable/installing/
 
 you will need to get an api key for OpenWeatherMap.org
 To do so, sign up to: https://openweathermap.org/ and retrieve your api key
+
+For local testing, it's best to use virtualenv:
+https://packaging.python.org/guides/installing-using-pip-and-virtualenv/
 
 ### Download maxmind geoip database
 
@@ -37,12 +40,15 @@ docker run --name redis -d -p 6379:6379 redis:4
 
 ### Install required python packages
 
-The following python packages are required.
+The following python packages are required and listed in requirements.txt file
 - argparse
 - redis
 - python-geoip
 - pytz
 - tzlocal
+- maxminddb
+
+To install packages
 
 ```
 pip install --user argparse
@@ -50,6 +56,14 @@ pip install --user redis
 pip install --user python-geoip
 pip install --user pytz
 pip install --user tzlocal
+```
+
+For local environment; please use virtualenv
+```
+python3 -m venv /path/to/weather-exercise/
+cd /path/to/weather-exercise/
+source bin/activate
+pip install -r requirements.txt
 ```
 
 ### Config file
