@@ -1,0 +1,9 @@
+certifi==2018.4.16
+chardet==3.0.4
+idna==2.7
+maxminddb==1.4.1
+pytz==2018.5
+redis==2.10.6
+requests==2.19.1
+tzlocal==1.5.1
+urllib3==1.23

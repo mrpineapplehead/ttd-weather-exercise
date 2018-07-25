@@ -1,0 +1,17 @@
+{
+  "weather_api": {
+    "api_key": "878cffb7cffc6b1f0afe9b682ad7b0c0",
+    "units": "imperial"
+  },
+  "cache": {
+    "host": "localhost",
+    "port": "6379",
+    "key_expiry_secs": 86400
+  },
+  "geoip_db":{
+    "file": "data/GeoLite2-City.mmdb"
+  },
+  "log_processor":{
+    "geo_precision": 0.2
+  }
+}
