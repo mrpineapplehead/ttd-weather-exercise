@@ -73,7 +73,7 @@ Attributes are:
 
 | Json Config | Description
 | --- | ---
-| weather_api.api_key | your weather api_key from http://openweathermap.org
+| weather_api.api_key | You will need to replace this value. It is the weather api key from http://openweathermap.org
 | weather_api.units | forecast units. eg: imperial or metric
 | cache.host | the host where the cache is living on
 | cache.port | the port the cache is listening on
