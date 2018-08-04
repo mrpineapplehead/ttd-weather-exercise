@@ -107,10 +107,10 @@ class WeatherLogProcessor(object):
 
         if len(self.max_forecasts) < number_of_buckets:
             number_of_buckets = len(self.max_forecasts)
-        print(self.max_forecasts[-1])
+
         bucket_size = (self.max_forecasts[-1] - self.max_forecasts[0]) / number_of_buckets
-        bucket_min = self.max_forecasts[0]
-        bucket_max = self.max_forecasts[0] + bucket_size
+        row_min = self.max_forecasts[0]
+        row_max = self.max_forecasts[0] + bucket_size
         count = 0
 
         with open(output_file, 'w') as file:
@@ -121,15 +121,20 @@ class WeatherLogProcessor(object):
                                    )
             filewriter.writerow(['bucketMin', 'bucketMax', 'count'])
             for forecast in self.max_forecasts:
-                if forecast <= bucket_max:
+                if forecast <= row_max:
                     count = count + 1
                 else:
-                    filewriter.writerow([round(bucket_min, 2),
-                                         round(bucket_max, 2),
+                    filewriter.writerow([round(row_min, 2),
+                                         round(row_max, 2),
                                          count])
                     count = 1
-                    bucket_min = bucket_max
-                    bucket_max = bucket_max + bucket_size
+                    row_min = row_max
+                    row_max = row_max + bucket_size
+
+            # prints the last row
+            filewriter.writerow([round(row_min, 2),
+                                 round(row_max, 2),
+                                 count])
 
 
     def print_error_report(self):
