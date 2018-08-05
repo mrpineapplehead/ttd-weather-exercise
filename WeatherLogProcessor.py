@@ -121,19 +121,22 @@ class WeatherLogProcessor(object):
                                    )
             filewriter.writerow(['bucketMin', 'bucketMax', 'count'])
             for forecast in self.max_forecasts:
-                if forecast <= row_max:
+                rounded_row_min = round(row_min, 2)
+                rounded_row_max = round(row_max, 2)
+
+                if forecast <= rounded_row_max:
                     count = count + 1
                 else:
-                    filewriter.writerow([round(row_min, 2),
-                                         round(row_max, 2),
+                    filewriter.writerow([rounded_row_min,
+                                         rounded_row_max,
                                          count])
                     count = 1
                     row_min = row_max
                     row_max = row_max + bucket_size
 
             # prints the last row
-            filewriter.writerow([round(row_min, 2),
-                                 round(row_max, 2),
+            filewriter.writerow([rounded_row_min,
+                                 rounded_row_max,
                                  count])
 
 
